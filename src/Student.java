@@ -24,17 +24,17 @@ public class Student implements Comparable {
 	/**
 	 * student date of birth in "yyyy-MM-dd" format
 	 */
-	private Date birthDate;
+	private Date DateOfBirth;
 
 	/**
 	 * student average mark
 	 */
 	private double avgMark;
 
-	public Student(int id, String fullName, Date birthDate, double avgMark) {
+	public Student(int id, String fullName, Date DateOfBirth, double avgMark) {
 		this.id = id;
 		this.fullName = fullName;
-		this.birthDate = birthDate;
+		this.DateOfBirth = DateOfBirth;
 		this.avgMark = avgMark;
 	}
 
@@ -55,11 +55,11 @@ public class Student implements Comparable {
 	}
 
 	public Date getBirthDate() {
-		return birthDate;
+		return DateOfBirth;
 	}
 
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
+	public void setBirthDate(Date DateOfBirth) {
+		this.DateOfBirth = DateOfBirth;
 	}
 
 	public double getAvgMark() {

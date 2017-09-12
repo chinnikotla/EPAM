@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -26,40 +28,52 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudents() {
 		// Add your implementation here
-		
+		//Correct
 		return students;
 	}
 
 	@Override
 	public void setStudents(Student[] students) {
 		// Add your implementation here
+		if (students == null) { 
+			throw new IllegalArgumentException();
+		}
+		for(int loopvar=0;loopvar<students.length;loopvar++) {
+			students[loopvar].setId(loopvar);
+			students[loopvar].setAvgMark(60+loopvar+(loopvar/10));
+			students[loopvar].setBirthDate(new Date());
+			students[loopvar].setFullName("Random" + loopvar);
+		}
 	}
 
 	@Override
 	public Student getStudent(int index) {
 		// Add your implementation here
-		
-		return null;
+		if(index < 0 || index >= students.length) throw new IllegalArgumentException();
+		else return students[index];
 	}
 
 	@Override
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
 	}
-
+	
 	@Override
 	public void addFirst(Student student) {
 		// Add your implementation here
+		//Still to be Reviewed
 	}
 
 	@Override
 	public void addLast(Student student) {
 		// Add your implementation here
+		//Still to be Reviewed
 	}
 
 	@Override
 	public void add(Student student, int index) {
 		// Add your implementation here
+		
 	}
 
 	@Override
@@ -100,6 +114,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
+		
 		return null;
 	}
 
@@ -124,18 +139,31 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudentsByAge(int age) {
 		// Add your implementation here
-		return null;
+		Student st[] = new Student[students.length];
+		int count=0;
+		for(int i=0;i<students.length;i++) if(students[i].getBirthDate()getClass().getAge() == age) {
+			st[count] = students[i];
+			count++;
+		}
+		return st;
 	}
 
 	@Override
 	public Student[] getStudentsWithMaxAvgMark() {
 		// Add your implementation here
+		
 		return null;
 	}
 
 	@Override
 	public Student getNextStudent(Student student) {
+		//Correct
 		// Add your implementation here
+		if (student == null) throw new IllegalArgumentException();
+		else
+		for(int i=0;i<students.length;i++) {
+			if(student.getId() == students[i].getId()) return students[i+1];
+		}
 		return null;
 	}
 }
